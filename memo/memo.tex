@@ -1,0 +1,144 @@
+
+\documentclass[10pt,dvipsnames,a4paper]{article}
+\usepackage[compatibility=false]{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{graphicx,color,epsfig,graphics,url}
+\usepackage{algorithm,algpseudocode}
+\usepackage{verbatim,ifthen,alltt,array}
+\usepackage{latexsym,amssymb,amsmath,amsthm,mathtools,dsfont}
+\usepackage{booktabs,multirow}
+%
+\usepackage{graphicx}
+\usepackage[margin=1in,headheight=13.6pt,bottom=0.85in]{geometry}
+\usepackage{xspace,setspace}
+
+% Save the class definition of \subparagraph
+\let\llncssubparagraph\subparagraph
+% Provide a definition to \subparagraph to keep titlesec happy
+\let\subparagraph\paragraph
+% Load titlesec
+%\usepackage[compact]{titlesec}
+\usepackage{titlesec}
+% Revert \subparagraph to the llncs definition
+\let\subparagraph\llncssubparagraph
+
+\renewcommand{\rmdefault}{ptm}
+\fontfamily{ptm}
+%
+\usepackage{enumitem}
+
+\usepackage{subcaption}
+\usepackage[figurename=Figure]{caption}
+\usepackage[normalem]{ulem}
+\usepackage{relsize}
+\let\vec\relax
+\usepackage{MnSymbol}
+\usepackage{bold-extra}
+\usepackage{fancyhdr}
+\usepackage[yyyymmdd]{datetime}
+
+% ----------------------------- hyperref ---------------------------------
+\usepackage[pdftex%
+,colorlinks=true%
+,bookmarks=true%
+,linkcolor=darkblue%
+,citecolor=darkblue%
+,urlcolor=darkblue%
+,plainpages=false]{hyperref}
+\hypersetup{%
+pdfauthor={{}},
+pdftitle={{}}
+}
+\def\subsectionautorefname{Section}
+\def\sectionautorefname{Section}
+\def\algorithmautorefname{Algorithm}
+\def\algocflineautorefname{line}
+\def\algocfautorefname{Algorithm}
+\def\propositionautorefname{Proposition}
+\def\theoremautorefname{Theorem}
+\def\observationautorefname{Observation}
+\def\lemmaautorefname{Lemma}
+\def\definitionautorefname{Definition}
+\def\corollaryautorefname{Corollary}
+\def\remarkautorefname{Remark}
+
+\usepackage[noabbrev,nameinlink,capitalise]{cleveref}
+\usepackage{textcomp}
+\usepackage{stmaryrd}
+\usepackage{hhline}
+\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage[ttdefault=true]{AnonymousPro}
+\usepackage{bold-extra}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{pifont}
+
+\usepackage{xfrac}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{nicefrac}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{forest}
+
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
+\usetikzlibrary{arrows,shadows,backgrounds}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning,fit}
+\usetikzlibrary{automata}
+\usetikzlibrary{matrix}
+\usetikzlibrary{shapes.symbols,shapes.misc,shapes.arrows}
+\usetikzlibrary{matrix,chains,scopes,decorations.pathmorphing}
+\usetikzlibrary{bayesnet}
+\usetikzlibrary{tikzmark}
+
+\input{cdefs}
+\input{defs}
+
+\onehalfspacing
+\graphicspath{{graphics/}}
+
+%% Date format
+\renewcommand{\dateseparator}{--}
+
+% Use fancy headings
+%
+\pagestyle{fancy}
+\setlength{\footskip}{40pt}
+\fancyhead[R,L]{}
+\fancyhead[C]{{\sc \runningtitle}} %DRAFT:~\today %\titlerunning
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{\textsf{DRAFT}:~\today}
+\fancyfoot[R]{} %\thepage
+
+\input{cmds}
+
+%------------------------------------------------------------------------------%
+
+\begin{document}
+
+\newcommand{\runningtitle}{Top-Down Compiler of DNNF without Structured Decomposability}
+
+\title{%
+  \runningtitle
+}
+
+\author{
+  Xuanxiang Huang
+  \\
+}%
+
+
+\maketitle
+\input{intro}
+\input{approach}
+
+
+% Bibliographic information.
+\bibliography{refs}
+\bibliographystyle{abbrv}
+
+\end{document}
+
+%------------------------------------------------------------------------------%

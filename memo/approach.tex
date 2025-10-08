@@ -1,0 +1,105 @@
+
+\section{Compiling CNF into Plain DNNF}
+%
+Given a CNF formula $\phi$ on variable set $\mbf{V}$, we compile
+$\phi$ into a \emph{plain DNNF} by recursively partitioning $\mbf{V}$ into
+variable regions and applying clause--variable decomposition at each subregion.
+
+
+\subsection{Clause Splitting}
+%
+Let $(\mbf{X},\mbf{Y})$ be a partition of $\mbf{V}$ such that $\mbf{X} \cap \mbf{Y} = \emptyset$
+and $\mbf{X} \cup \mbf{Y} = \mbf{V}$.
+For an arbitrary clause $\gamma \in \phi$ defined on $\mbf{V}$, let $\gamma = \gamma(\mbf{X}) \lor \gamma(\mbf{Y})$,
+where $\gamma(\mbf{X})$ and $\gamma(\mbf{Y})$ are the sub-clauses of $\gamma$
+mentioning variables $\mbf{X}$ and $\mbf{Y}$, that is,
+\[
+\gamma(\mbf{X}) := \bigvee_{\ell \in \gamma,\; \text{var}(\ell)\in \mbf{X}}\; \ell,
+\qquad
+\gamma(\mbf{Y}) := \bigvee_{\ell \in \gamma,\; \text{var}(\ell)\in \mbf{Y}}\; \ell.
+\]
+A clause $\gamma$ is called a \emph{cross-clause} w.r.t. $(\mbf{X},\mbf{Y})$ if
+it contains variables from both $\mbf{X}$ and $\mbf{Y}$.
+And a CNF $\phi$ can be divided into three parts, clauses $\gamma$ that only mention $\mbf{X}$,
+clauses $\gamma$ that only mention $\mbf{Y}$, and cross-clauses $\gamma_i$ that mention
+both $\mbf{X}$ and $\mbf{Y}$.
+
+\begin{definition}[Clausal $(\mbf{X},\mbf{Y})$-decomposition]
+Given a CNF $\phi = \{\gamma_1,\dots,\gamma_k\}$,
+the clausal $(\mbf{X},\mbf{Y})$-decomposition of a CNF $\phi$ is defined as
+\[
+CD(\phi,\mbf{X},\mbf{Y}) = \bigg\{\bigg(\bigcup_{i\in S} \gamma_{i}(\mbf{X}), \bigcup_{i\not\in S} \gamma_{i}(\mbf{Y}) \bigg) \bigg| S\subseteq \{1,\dots, k\} \bigg\}.
+\]
+Then $\phi$ can be written as follows
+\begin{equation}
+\label{eq:cd}
+\phi
+\;=\;
+\bigvee_{S}
+\big(
+L_{S}(\mbf{X})
+\;\wedge\;
+R_{S}(\mbf{Y})
+\big),
+\end{equation}
+where
+\[
+L_{S}(\mbf{X}) := \bigg( \bigwedge_{i\in S}\gamma_{i}(\mbf{X}) \bigg),
+\qquad
+R_{S}(\mbf{Y}) := \bigg( \bigwedge_{i\not\in S} \gamma_{i}(\mbf{Y}) \bigg).
+\]
+And inconsistent pairs $(L_{S},R_{S})$ are removed.
+\end{definition}
+
+
+\subsection{Recursive Decomposition}
+%
+We outline a simple recursive compilation algorithm.
+\begin{algorithm}[H]
+\caption{$\msf{Compile}(\phi, \mbf{V})$}
+\input{algs/compile}
+\label{alg:compile}
+\end{algorithm}
+%
+If a CNF $\phi$ does not include cross-clauses, then $\phi$ is trivially decomposable, and a DNNF
+can be constructed immediately.
+However, if $\phi$ contains cross-clauses, then we need to heuristically decompose it.
+
+The algorithm then applies an $(\mbf{X},\mbf{Y})$-decomposition to split $\phi$
+into $\mbf{X}$-components and $\mbf{Y}$-components according to equation~\eqref{eq:cd}, 
+and recursively invokes itself to further compile each pair $(L_{S}, R_{S})$.
+Note that each pair $(L_{S}, R_{S})$ can be compiled independently, which makes parallelization possible.
+Moreover, for each pair $(L_{S}, R_{S})$, one can locally choose the most suitable $(\mbf{X}, \mbf{Y})$-decomposition.
+Finally, the algorithm returns a disjunction over all DNNFs compiled from the pairs $(L_{S}, R_{S})$ as the resulting DNNF equivalent to $\phi$.
+Several aspects of the algorithm~\ref{alg:compile} can be summarized as follows:
+\begin{itemize}
+\item \textbf{Diverse partitions across regions.}
+Distinct subformulas (e.g., $L_{S}(\mbf{X})$, $L_{S'}(\mbf{X})$) may choose
+different internal partitions, yielding a heterogeneous
+hierarchy of region refinements.
+\item \textbf{Parallel compilation.}
+The subproblems $(L_{S},R_{S})$ produced by each
+$CD(\phi,\mbf{X},\mbf{Y})$ are independent and may be compiled in
+parallel.  Identical subregions can be merged.
+\end{itemize}
+
+
+
+\section{Choosing the Best $(\mbf{X},\mbf{Y})$-Decomposition}
+%
+In the proposed recursive compilation framework, each invocation
+$\msf{Compile}(\phi,\mbf{V})$ requires selecting a partition
+$(\mbf{X},\mbf{Y})$ of the current variable set~$\mbf{V}$.
+The quality of this partition strongly affects circuit size:
+fewer cross-clauses lead to fewer disjunctions introduced by
+$CD(\phi,\mbf{X},\mbf{Y})$ and thus to smaller DNNFs.
+This section outlines theoretical tools and heuristics that can guide
+the choice of $(\mbf{X},\mbf{Y})$.
+\xnote{
+There are a plenty studies of parameters to measure complexity of compilation
+~\cite{oztok2014compiling,bova2015compiling,oztok2015top,capelli2021certifying,de2025compilation}
+Apparently, there exists additional parameters for bounding the complexity
+of the proposed compilation algorithm, which we need to formally define.
+}
+
+

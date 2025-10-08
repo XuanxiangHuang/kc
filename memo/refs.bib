@@ -1,0 +1,136 @@
+@article{amaru2015majority,
+  title={Majority-inverter graph: A new paradigm for logic optimization},
+  author={Amaru, Luca and Gaillardon, Pierre-Emmanuel and De Micheli, Giovanni},
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  volume={35},
+  number={5},
+  pages={806--819},
+  year={2015},
+  publisher={IEEE}
+}
+
+@incollection{darwiche2021tractable,
+  title={Tractable Boolean and arithmetic circuits},
+  author={Darwiche, Adnan},
+  booktitle={Neuro-Symbolic Artificial Intelligence: The State of the Art},
+  pages={146--172},
+  year={2021},
+  publisher={IOS Press}
+}
+
+@book{crama2011boolean,
+  title={Boolean functions: Theory, algorithms, and applications},
+  author={Crama, Yves and Hammer, Peter L},
+  year={2011},
+  publisher={Cambridge University Press}
+}
+
+@inproceedings{brayton2006scalable,
+  title={Scalable logic synthesis using a simple circuit structure},
+  author={Brayton, Alan Mishchenko Robert and Mishchenko, Alan},
+  booktitle={Proc. IWLS},
+  volume={6},
+  pages={15--22},
+  year={2006},
+  organization={Citeseer}
+}
+
+@inproceedings{darwiche2011sdd,
+  title={SDD: A new canonical representation of propositional knowledge bases},
+  author={Darwiche, Adnan},
+  booktitle={IJCAI Proceedings-International Joint Conference on Artificial Intelligence},
+  volume={22},
+  number={1},
+  pages={819},
+  year={2011}
+}
+
+@article{darwiche2002knowledge,
+  title={A knowledge compilation map},
+  journal={Journal of Artificial Intelligence Research},
+  volume={17},
+  pages={229--264},
+  year={2002}
+}
+
+@article{bryant1986graph,
+  title={Graph-based algorithms for boolean function manipulation},
+  journal={Computers, IEEE Transactions on},
+  volume={100},
+  number={8},
+  pages={677--691},
+  year={1986},
+  publisher={IEEE}
+}
+
+@inproceedings{oztok2015top,
+  title={A Top-Down Compiler for Sentential Decision Diagrams.},
+  author={Oztok, Umut and Darwiche, Adnan},
+  booktitle={IJCAI},
+  volume={15},
+  pages={3141--3148},
+  year={2015}
+}
+
+@inproceedings{capelli2021certifying,
+  title={Certifying top-down decision-DNNF compilers},
+  author={Capelli, Florent and Lagniez, Jean-Marie and Marquis, Pierre},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={35},
+  number={7},
+  pages={6244--6253},
+  year={2021}
+}
+
+@article{darwiche2001,
+author = {Darwiche, Adnan},
+title = {Decomposable negation normal form},
+year = {2001},
+issue_date = {July 2001},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {48},
+number = {4},
+issn = {0004-5411},
+url = {https://doi.org/10.1145/502090.502091},
+doi = {10.1145/502090.502091},
+abstract = {Knowledge compilation has been emerging recently as a new direction of research for dealing with the computational intractability of general propositional reasoning. According to this approach, the reasoning process is split into two phases: an off-line compilation phase and an on-line query-answering phase. In the off-line phase, the propositional theory is compiled into some target language, which is typically a tractable one. In the on-line phase, the compiled target is used to efficiently answer a (potentially) exponential number of queries. The main motivation behind knowledge compilation is to push as much of the computational overhead as possible into the off-line phase, in order to amortize that overhead over all on-line queries. Another motivation behind compilation is to produce very simple on-line reasoning systems, which can be embedded cost-effectively into primitive computational platforms, such as those found in consumer electronics.One of the key aspects of any compilation approach is the target language into which the propositional theory is compiled. Previous target languages included Horn theories, prime implicates/implicants and ordered binary decision diagrams (OBDDs). We propose in this paper a new target compilation language, known as decomposable negation normal form (DNNF), and present a number of its properties that make it of interest to the broad community. Specifically, we show that DNNF is universal; supports a rich set of polynomial--time logical operations; is more space-efficient than OBDDs; and is very simple as far as its structure and algorithms are concerned. Moreover, we present an algorithm for converting any propositional theory in clausal form into a DNNF and show that if the clausal form has a bounded treewidth, then its DNNF compilation has a linear size and can be computed in linear time (treewidth is a graph-theoretic parameter that measures the connectivity of the clausal form). We also propose two techniques for approximating the DNNF compilation of a theory when the size of such compilation is too large to be practical. One of the techniques generates a sound but incomplete compilation, while the other generates a complete but unsound compilation. Together, these approximations bound the exact compilation from below and above in terms of their ability to answer clausal entailment queries. Finally, we show that the class of polynomial--time DNNF operations is rich enough to support relatively complex AI applications, by proposing a specific framework for compiling model-based diagnosis systems.},
+journal = {J. ACM},
+month = jul,
+pages = {608–647},
+numpages = {40},
+keywords = {satisfiability, propositional logic, model-based diagnosis, knowledge compilation, Boolean functions}
+}
+
+@inproceedings{bova2015compiling,
+  title={On compiling CNFs into structured deterministic DNNFs},
+  author={Bova, Simone and Capelli, Florent and Mengel, Stefan and Slivovsky, Friedrich},
+  booktitle={International Conference on Theory and Applications of Satisfiability Testing},
+  pages={199--214},
+  year={2015},
+  organization={Springer}
+}
+
+@inproceedings{oztok2014compiling,
+  title={On compiling CNF into decision-DNNF},
+  author={Oztok, Umut and Darwiche, Adnan},
+  booktitle={International Conference on Principles and Practice of Constraint Programming},
+  pages={42--57},
+  year={2014},
+  organization={Springer}
+}
+
+@inproceedings{de2025compilation,
+author = {De Colnet, Alexis and Szeider, Stefan and Zhang, Tianwei},
+title = {Compilation and fast model counting beyond CNF},
+year = {2024},
+isbn = {978-1-956792-04-1},
+url = {https://doi.org/10.24963/ijcai.2024/367},
+doi = {10.24963/ijcai.2024/367},
+abstract = {Circuits in deterministic decomposable negation normal form (d-DNNF) are representations of Boolean functions that enable linear-time model counting. This paper strengthens our theoretical knowledge of what classes of functions can be efficiently transformed, or compiled, into d-DNNF. Our main contribution is the fixed-parameter tractable (FPT) compilation of conjunctions of specific constraints parameterized by incidence treewidth. This subsumes the known result for CNF. The constraints in question are all functions representable by constant-width ordered binary decision diagrams (OBDDs) for all variable orderings. For instance, this includes parity constraints and cardinality constraints with constant threshold. The running time of the FPT compilation is singly exponential in the incidence treewidth but hides large constants in the exponent. To balance that, we give a more efficient FPT algorithm for model counting that applies to a sub-family of the constraints and does not require compilation.},
+booktitle = {Proceedings of the Thirty-Third International Joint Conference on Artificial Intelligence},
+articleno = {367},
+numpages = {9},
+location = {Jeju, Korea},
+series = {IJCAI '24}
+}

@@ -1,0 +1,22 @@
+
+\section{Motivation and Problem Statement}
+%
+Compiling propositional formulas into tractable circuits has been extensively studied,
+with particular emphasis on structured languages such as \emph{structured} DNNF or SDD,
+where a \emph{vtree} globally constrains decomposability, and OR nodes
+ensure determinism. These restrictions guarantee strong closure properties and
+tractable queries, but often lead to large circuit sizes.
+
+In contrast, \emph{plain DNNF} requires only decomposability,
+without enforcing a global variable order.
+Such representations can be exponentially more succinct.
+Our goal is therefore:
+
+\begin{quote}
+\textbf{Problem:} Given a CNF formula $\phi$ over variables $\mbf{V}$,
+compile $\phi$ into an \emph{unstructured DNNF}, i.e.,
+a circuit where all AND-nodes are decomposable but
+no global vtree is required and OR-nodes may be non-deterministic.
+\end{quote}
+
+

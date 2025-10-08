@@ -1,0 +1,165 @@
+
+
+%------------------------------------------------------------------------------%
+% Configuration
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{xprop}{Proposition}
+\newtheorem{xclaim}{Claim}
+\newtheorem{xrem}{Remark}
+
+\crefname{enumi}{}{}
+
+\newenvironment{Proof}{\noindent{\em Proof.~}}{\hfill$\Box$\\[-0.15cm]}
+
+%------------------------------------------------------------------------------%
+% Commands
+
+\newcommand{\todo}[2]{\smallskip\noindent{\em TODO (#1): #2}}
+
+\newcommand{\todoF}[2]{}
+
+\newcommand{\keys}[1]{{\bf #1}} % keywords in algorithms
+\newcommand{\com}[1]{{\it /* #1 */}} % comments in algorithms
+
+\newcommand{\Var}{V} % set of variables in an instance
+\newcommand{\varx}{x} % variable in an instance
+
+\newcommand{\cmt}[2]{\smallskip{\flushleft\noindent{\large\bf Comment(#1):~#2}}\\}
+
+\newcommand{\fml}[1]{{\mathcal{#1}}}
+\newcommand{\fcall}[1]{{\texttt{#1}}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\tn}[1]{\textnormal{#1}}
+\newcommand{\tsf}[1]{\textsf{#1}}
+\newcommand{\msf}[1]{\ensuremath\mathsf{#1}}
+\newcommand{\mbf}[1]{\ensuremath\mathbf{#1}}
+\newcommand{\mbb}[1]{\ensuremath\mathbb{#1}}
+\newcommand{\vset}[1]{\mathbf{\lowercase{#1}}}
+\newcommand{\oper}[1]{\ensuremath\mathsf{#1}}
+
+\newcommand{\vars}{\oper{Vars}}
+\newcommand{\goalcls}{\oper{Goal}}
+\newcommand{\defcls}{\oper{Definite}}
+\newcommand{\antecs}{\oper{AntecCand}}
+\newcommand{\upos}{\oper{UnitPos}}
+%
+\newcommand{\nodes}{\oper{Nodes}}
+\newcommand{\leaf}{\oper{Leaf}}
+\newcommand{\nleaf}{\oper{NonLeaf}}
+\newcommand{\lval}{\oper{Value}}
+\newcommand{\loper}{\oper{Oper}}
+\newcommand{\rootn}{\oper{Root}}
+\newcommand{\childn}{\oper{Children}}
+
+\newcommand{\defbset}[1]{\ensuremath\mathbf{#1}}
+\newcommand{\defset}[1]{\ensuremath\mathbb{#1}}
+
+\newcommand{\qall}[1]{\ensuremath\forall#1\;\!}
+\newcommand{\qex}[1]{\ensuremath\exists#1\;\!}
+\newcommand{\qq}[1]{\ensuremath Q#1\;\!}
+\newcommand{\qqq}[2]{\ensuremath Q_{#1}#2\;\!}
+\newcommand{\lqq}[1]{\ensuremath Q_{#1}}
+\newcommand{\ifop}{\ensuremath\tnf{:-}$\:$}
+\newcommand{\qop}{\ensuremath\tnf{?-}$\:$}
+\newcommand{\zsymb}{\ensuremath\texttt{0}}
+\newcommand{\mfk}[1]{\ensuremath\mathfrak{#1}}
+
+\newcommand{\lsign}{\ensuremath\filledtriangleright}
+\newcommand{\rsign}{\ensuremath\filledtriangleleft}
+
+\newcommand{\similar}{\ensuremath\sigma}
+\newcommand{\tsimilar}{\ensuremath\mathsf{T}\sigma}
+
+\newcommand{\bigland}{\bigwedge}
+\newcommand{\biglor}{\bigvee}
+
+\newcommand{\pnorm}[1]{\ensuremath{l}_{#1}}
+\newcommand{\refd}{\ensuremath\epsilon}
+\newcommand{\refdg}{\ensuremath\eta}
+\newcommand{\nfrac}{\nicefrac}
+\newcommand{\eval}{\ensuremath\mbb{E}}
+\newcommand{\exv}{\ensuremath\mathbf{E}}
+\newcommand{\exvl}[1]{\ensuremath\raisebox{-1pt}{$\mathbb{E}$}[#1]}
+\newcommand{\cf}{\ensuremath\upsilon} % \nu, \xi
+\newcommand{\cfn}[1]{\ensuremath\upsilon_{#1}} % \;\!\! % \nu, \xi
+\newcommand{\ite}[3]{\ensuremath\tn{ITE}(#1,#2,#3)}
+\newcommand{\svn}[1]{\msf{Sv}_{#1}}
+\newcommand{\svf}[2]{\msf{Sv}_{#1}(#2)}
+\newcommand{\diff}[1]{\Delta_{#1}}
+\newcommand{\sumd}{\Gamma}
+\newcommand{\Cross}{\msf{Cross}}
+
+\newcommand{\tsv}{\msf{TSc}}
+\newcommand{\tsvn}[1]{\msf{TSc}_{#1}}
+\newcommand{\critic}{\ensuremath\mathsf{Crit}}
+
+\newcommand{\comb}[2]{\ensuremath{}^{#1}\mathrm{C}_{#2}}
+
+\newcommand{\cmark}{\mbox{\ding{51}}}
+\newcommand{\xmark}{\mbox{\ding{55}}}
+
+\DeclareMathOperator*{\shap}{\msf{Sc}}
+\DeclareMathOperator*{\sv}{\msf{Sv}}
+\newcommand{\Compile}{\textsc{Compile}}
+
+\newenvironment{packenum}{
+\begin{enumerate*}
+  \setlength{\partopsep}{0pt}
+  \setlength{\topsep}{0pt}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate*}}
+
+\definecolor{gray}{rgb}{.4,.4,.4}
+\definecolor{midgrey}{rgb}{0.5,0.5,0.5}
+\definecolor{middarkgrey}{rgb}{0.35,0.35,0.35}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+\definecolor{darkred}{rgb}{0.7,0.1,0.1}
+\definecolor{midblue}{rgb}{0.2,0.2,0.7}
+\definecolor{darkblue}{rgb}{0.1,0.1,0.5}
+\definecolor{defseagreen}{cmyk}{0.69,0,0.50,0}
+
+\newcommand{\xnote}[1]{\medskip\noindent$\llbracket$\textcolor{darkgreen}{xuanxiang}: \emph{\textcolor{middarkgrey}{#1}}$\rrbracket$\medskip}
+
+\newcommand{\jnoteF}[1]{}
+
+\newcounter{Comment}[Comment]
+\setcounter{Comment}{1}
+
+\DeclareMathOperator*{\nentails}{\nvDash}
+\DeclareMathOperator*{\entails}{\vDash}
+\DeclareMathOperator*{\lequiv}{\leftrightarrow}
+\DeclareMathOperator*{\limply}{\rightarrow}
+
+\newcommand{\notegengen}[4]{\
+  {#1}\raisebox{3pt}{\textsf{\tiny\textcolor{#4}{#2\theComment}}}\marginpar{\parbox{0.9\marginparwidth}{\scriptsize\textsf{\textcolor{#4}{#2\theComment}:} \textcolor{#4}{#3}}}\addtocounter{Comment}{1}}
+\newcommand{\notegen}[3]{\notegengen{$\looparrowright$}{#1}{#3}{#2}}
+%--uncomment the following line to kill comments
+%\renewcommand{\notegengen}[4]{}
+
+%\setlength{\tabcolsep}{.5em}
+%\setlength{\tabcolsep}{0.375em}
+%\setlength{\tabcolsep}{0.75em}
+\setlength{\tabcolsep}{0.325em}
+
+\newcommand{\notej}[1]{\notegen{jpms}{darkblue}{#1}}
+
+\setlist{nosep}
+
+\titleformat{\paragraph}[runin]
+            {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\renewcommand{\floatpagefraction}{0.95}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+
+\renewcommand{\dblfloatpagefraction}{0.999}
+\renewcommand{\dbltopfraction}{0.999}
+
+\tikzset{
+  0 my edge/.style={densely dashed, my edge},
+  my edge/.style={-{Stealth[]}},
+}
+%------------------------------------------------------------------------------%

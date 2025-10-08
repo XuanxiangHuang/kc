@@ -1,0 +1,19 @@
+%
+\begin{algorithmic}[1]
+\Require CNF $\phi$ over variable set $\mbf{V}$
+\Ensure A plain DNNF equivalent to $\phi$
+\If{$\phi$ has no cross-clauses w.r.t. $(\mbf{X},\mbf{Y})$}
+\State \Return a DNNF for $\phi$
+\EndIf
+\State Choose one partition $(\mbf{X},\mbf{Y})$ of $\mbf{V}$
+\Comment{Heuristic techniques}
+\State Compute $CD(\phi,\mbf{X},\mbf{Y})$
+\State For each surviving pair $(L_{S},R_{S})$, recursively compile:
+\Comment{Parallelizm on pairs is optional}
+\[
+\psi_{S} = \msf{Compile}(L_{S}, \mbf{X}) \wedge \msf{Compile}(R_{S}, \mbf{Y}).
+\]
+\State \Return $\bigvee_{S} \psi_{S}$.
+\end{algorithmic}
+
+
